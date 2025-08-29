@@ -20,6 +20,33 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Core Concepts",
+        "groups": [
+          {
+            "group": "Core concepts",
+            "pages": [
+              "core-concepts/INDEX",
+              "core-concepts/FORMS",
+              "core-concepts/PLUGINS",
+              "core-concepts/BUILDING_PLUGINS",
+              "core-concepts/OEL",
+              "core-concepts/SECRETS_MANAGER"
+            ]
+          },
+          {
+            "group": "Node types",
+            "pages": [
+              "core-concepts/node-types/SET_VARIABLE_NODE",
+              "core-concepts/node-types/CONDITION_NODE",
+              "core-concepts/node-types/HTTP_REQUEST_NODE",
+              "core-concepts/node-types/TRIGGER_NODE",
+              "core-concepts/node-types/WAIT_NODE",
+              "core-concepts/node-types/SWITCH_NODE"
+            ]
+          }
+        ]
       }
     ],
     "global": {

@@ -1,0 +1,19 @@
+# Set Variable Node
+
+Evaluates assignment expressions and stores results as workflow variables.
+
+## Core Functionality
+- Create/update variables
+- Do calculations
+- Transform data
+- Values become available to subsequent nodes immediately
+
+## Properties
+- **Expression** — uses `expr-lang`
+
+### Example
+```
+age = 25
+name = "John"
+isActive = true
+```
