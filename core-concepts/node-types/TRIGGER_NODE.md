@@ -49,19 +49,11 @@ Advanced trigger type that enables automated, time-based workflow execution.
     _**Example:** Weekly every Monday at 9 AM._
 
 
-
-    <div align="left"><figure><img src="https://3431340728-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FsU4OKsizzEpCVNSoTs7U%2Fuploads%2FXuf8hMLZOiot7KXTdfMT%2FScreenshot%202025-08-22%20at%208.50.40%E2%80%AFPM.png?alt=media&#x26;token=d59ee8bd-cfc7-4831-b0b5-551aba2ba325" alt=""><figcaption></figcaption></figure></div>
-
-
-
-3.  **One-Time Schedule:**&#x20;
+2.  **One-Time Schedule:**&#x20;
 
     Executes a workflow once at a specific date and time.
 
     _**Example:** Once on 30th of August 2025 at 08:52 PM._
-
-    ![](https://3431340728-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FsU4OKsizzEpCVNSoTs7U%2Fuploads%2FUOMcHQAfGAYAF9WmtDdT%2FScreenshot%202025-08-22%20at%208.52.38%E2%80%AFPM.png?alt=media\&token=a2185931-a549-49f8-ae2c-c6355d7e66a1)
-
 
 
 3.  **Cron Schedule:**&#x20;
