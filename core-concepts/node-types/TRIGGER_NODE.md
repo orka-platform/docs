@@ -5,8 +5,6 @@ icon: 'circle-play'
 
 The Trigger Node is the fundamental starting point of every workflow in Orka. It defines how and when a workflow is initiated, serving as the entry point that determines the execution context and scheduling behavior.
 
-<div align="left"><figure><img src="https://3431340728-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FsU4OKsizzEpCVNSoTs7U%2Fuploads%2F2uNqqii8yYLdBLAnDoCI%2FScreenshot%202025-08-22%20at%209.04.35%E2%80%AFPM.png?alt=media&#x26;token=add6d268-0dfc-43cf-b039-40dc5bb8f635" alt="" width="514"><figcaption></figcaption></figure></div>
-
 ## What is a Trigger Node?
 
 A Trigger Node is a special workflow component that:
