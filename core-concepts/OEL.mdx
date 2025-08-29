@@ -17,7 +17,7 @@ Expressions in Orka can be used in two main ways:
 
 ### Basic syntax:
 
-```
+```javascript
 {{ expression }}
 ```
 
@@ -29,7 +29,7 @@ Variable interpolation allows you to insert dynamic values into strings. This is
 
 #### Examples
 
-```
+```javascript
 "Hello, {{name}}!"
 "Your order #{{orderId}} has been processed."
 "Total amount: ${{price * quantity}}"
@@ -58,7 +58,7 @@ Orka's expression language supports a wide range of operations:
 
 #### Arithmetic Operations
 
-```
+```javascript
 5 + 3        // Addition: 8
 10 - 4      // Subtraction: 6
 6 * 7        // Multiplication: 42
@@ -69,26 +69,26 @@ Orka's expression language supports a wide range of operations:
 
 #### Comparison Operations
 
-```
+```javascript
 x > y       // Greater than
 x >= y      // Greater than or equal to
 x < y      // Less than
 x <= y // Less than or equal to
 x == y // Equal to
-x != y // Not equal to      // Not equal to
+x != y // Not equal to
 ```
 
 #### Logical Operations
 
-```
+```javascript
 x && y // Logical AND
 x || y // Logical OR
-!x     // NOT x       // Logical NOT
+!x     // Logical NOT
 ```
 
 #### String Operations
 
-```
+```javascript
 "Hello, " + name           // Concatenation
 message.contains("error")    // String contains
 message.startsWith("Hello")  // String starts with
@@ -98,13 +98,13 @@ message.length()            // String length
 
 #### Conditional Expressions
 
-```
+```javascript
 condition ? trueValue : falseValue
 ```
 
 #### Objects & Arrays
 
-```
+```javascript
 user.name            // Object property access
 items[0]             // Array index access
 data["key"]          // Map key access
@@ -112,7 +112,7 @@ data["key"]          // Map key access
 
 ### Built-in Functions
 
-```
+```javascript
 len(array) // Length of array
 abs(-10)   // Absolute value: 10
 round(3.7) // Round: 4
@@ -124,7 +124,7 @@ ceil(3.7)  // Ceiling: 4
 
 Orka provides special syntax for securely accessing secrets:
 
-```
+```javascript
 {{ secrets.API_KEY }}
 ```
 

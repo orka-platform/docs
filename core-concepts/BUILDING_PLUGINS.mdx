@@ -162,11 +162,15 @@ When the engine starts, it:
 3. Loads the shared object and looks for the exported entrypoint
 4. Reads the plugin's `config.json` to populate method metadata
 
-<mark style="color:yellow;">**Please note that the ability to register custom, internally developed plugins is reserved exclusively for enterprise customers with a self-hosted, on-premise deployment under an enterprise contract. This restriction exists because custom plugins operate under a single-tenancy model within the Orka engine, and therefore cannot be registered in shared, multi-tenant environments.**</mark>
+<Callout type="warning">
+Please note that the ability to register custom, internally developed plugins is reserved exclusively for enterprise customers with a self-hosted, on-premise deployment under an enterprise contract. This restriction exists because custom plugins operate under a single-tenancy model within the Orka engine, and therefore cannot be registered in shared, multi-tenant environments.
+</Callout>
 
 For all other users, Orka provides a rich set of officially supported plugins that can be readily used in workflows.
 
-<mark style="color:blue;">In addition, developers have the opportunity to contribute by submitting their own plugins for review and potential inclusion in Orka’s official plugin marketplace.</mark>
+<Callout type="info">
+In addition, developers have the opportunity to contribute by submitting their own plugins for review and potential inclusion in Orka's official plugin marketplace.
+</Callout>
 
 
 

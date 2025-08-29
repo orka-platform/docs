@@ -1,0 +1,108 @@
+---
+title: 'Condition Node'
+description: 'Enables branching based on boolean expressions'
+icon: 'code-branch'
+---
+
+The Condition Node (also called If Node) is a fundamental decision-making component in Orka workflows that enables conditional execution paths based on boolean expressions. It creates branching logic that allows workflows to take different actions depending on whether specified conditions are met.
+
+![](../../images/condition-node.jpg)
+
+#### Expression Engine
+
+* **Language:** JavaScript-like expression syntax
+* **Context:** Access to current workflow variables and execution context
+* **Evaluation:** Real-time evaluation during workflow execution
+
+
+
+### Properties:
+
+*   **Expression**
+
+    The Condition Node's expression field utilizes the [expr-lang](https://expr-lang.org/docs/language-definition) for configuring expressions. For comprehensive guidance on constructing expressions specific to the Condition Node, please refer to the official documentation.&#x20;
+
+> <mark style="color:$primary;">You can access execution variables within the expression.</mark>
+
+**Operators and Functions**
+
+1. Comparison Operators:
+
+```go
+// Numeric comparisons
+age >= 18
+score > 80
+count <= 100
+attempts < 3
+
+// String comparisons
+status == "active"
+role != "admin"
+name != ""
+
+// Boolean operations
+isEnabled
+!isBlocked
+hasPermission == true
+```
+
+***
+
+2. Logical Operators:&#x20;
+
+```go
+// AND operations
+isActive && hasPermission
+(age >= 18) && (country == "US")
+
+// OR operations
+isVIP || orderTotal > 1000
+(status == "pending") || (status == "approved")
+
+// NOT operations
+!isBlocked
+!(attempts >= 3)
+```
+
+***
+
+3. Mathematical Operators:
+
+```go
+// Arithmetic
+total + tax
+price * quantity
+score / maxScore
+attempts % maxAttempts
+
+// Comparison
+value >= threshold
+count < limit
+```
+
+***
+
+4. Built-in Functions
+
+```go
+// String functions
+len(name) > 0
+contains(email, "@")
+startsWith(role, "admin")
+endsWith(filename, ".txt")
+
+// Numeric functions
+abs(score)
+min(value1, value2)
+max(value1, value2)
+round(percentage)
+
+// Array functions
+len(items) > 0
+contains(items, "item1")
+indexOf(items, "item2")
+
+// Map functions
+len(properties) > 0
+has(properties, "key1")
+```
