@@ -27,7 +27,6 @@
           {
             "group": "Core concepts",
             "pages": [
-              "core-concepts/INDEX",
               "core-concepts/FORMS",
               "core-concepts/PLUGINS",
               "core-concepts/BUILDING_PLUGINS",
