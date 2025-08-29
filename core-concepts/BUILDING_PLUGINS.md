@@ -1,23 +1,32 @@
-# Building Plugins
+---
+title: 'Building Plugins'
+icon: 'puzzle'
+---
 
-## Prerequisites
-- Go 1.18+
-- Go modules
-- Git
+### Prerequisites
 
-### 1) Create a module
+* Go programming language (1.18+)
+* Basic understanding of Go modules
+* Git for version control
+
+#### Step 1: Create a new Go module
+
 ```bash
 mkdir my-orka-plugin
 cd my-orka-plugin
 go mod init github.com/yourusername/my-orka-plugin
 ```
 
-### 2) Add SDK
+#### Step 2: Add the Orka Plugin SDK dependency
+
 ```bash
 go get github.com/orka-platform/orka-plugin-sdk
 ```
 
-### 3) Implement entrypoint
+#### Step 3: Implement the plugin entrypoint
+
+Create a main.go file with the following structure:
+
 ```go
 package main
 
@@ -25,7 +34,7 @@ import (
     sdk "github.com/orka-platform/orka-plugin-sdk"
 )
 
-// OrkaCall is the exported entrypoint
+// OrkaCall is the exported entrypoint for the plugin
 func OrkaCall(req sdk.Request, res *sdk.Response) error {
     switch req.Method {
     case "HelloWorld":
@@ -35,7 +44,9 @@ func OrkaCall(req sdk.Request, res *sdk.Response) error {
         }
         *res = sdk.Response{
             Success: true,
-            Data: map[string]any{"message": "Hello, " + name + "!"},
+            Data: map[string]any{
+                "message": "Hello, " + name + "!",
+            },
         }
         return nil
     default:
@@ -48,29 +59,49 @@ func OrkaCall(req sdk.Request, res *sdk.Response) error {
 }
 ```
 
-### 4) Build
+#### Step 4: Build the plugin
+
 ```bash
 go build -buildmode=plugin -o myplugin.so .
 ```
 
-## SDK Contract
-- **Request**: `Method` (string), `Args` (map[string]any)
-- **Response**: `Success` (bool), optional `Error` (string), optional `Data` (any)
+### SDK Contract
 
-## Supported Function Signatures
-- Primary symbol: `OrkaCall(sdk.Request, *sdk.Response) error`
-- Fallback symbol: `CallMethod` variants:
-  - `func(context.Context, sdk.Request) (sdk.Response, error)`
-  - `func(sdk.Request) (sdk.Response, error)`
-  - `func(sdk.Request, *sdk.Response) error`
+Plugins use the `github.com/orka-platform/orka-plugin-sdk` package to define the request and response types:
 
-## Plugin Configuration
-**Repository layout**
-- `main.go` (exports `OrkaCall` or `CallMethod`)
-- `config.json` (metadata/method definitions)
-- `go.mod`, `go.sum`
+* Request fields:
+  * `Method` (string): The logical operation, e.g., SendMessage
+  * `Args` (map\[string]any): Input arguments for the method
+* Response fields:
+  * Success (bool): Whether the operation succeeded
+  * Error (string, optional): Error message if the operation failed
+  * Data (any, optional): Response data (map or scalar)
 
-**config.json example**
+### Supported Function Signatures
+
+The plugin loader supports multiple function signatures:
+
+1. Primary Symbol: OrkaCall
+   1. `func(sdk.Request, *sdk.Response) error (RPC-style)`
+2. Fallback Symbol: CallMethod
+   1. `func(context.Context, sdk.Request) (sdk.Response, error)` (context-aware)
+   2. `func(sdk.Request) (sdk.Response, error)` (context-free)
+   3. `func(sdk.Request, *sdk.Response)` error (RPC-style)
+
+### Plugin Configuration
+
+#### Repository Layout
+
+A typical plugin repository should have the following structure:
+
+* main.go: Defines your plugin with exported `OrkaCall` or `CallMethod` function
+* `config.json`: Human-facing metadata and method definitions
+* `go.mod`, `go.sum`: Go module files
+
+#### Metadata Configuration (config.json)
+
+The `config.json` file provides metadata about your plugin and its methods:
+
 ```json
 {
   "name": "my-plugin",
@@ -80,14 +111,32 @@ go build -buildmode=plugin -o myplugin.so .
   "methods": {
     "HelloWorld": {
       "description": "Returns a greeting message",
-      "args": [{"name":"name","type":"string","description":"Name to greet","required":false}],
-      "returns": [{"name":"message","type":"string","description":"The greeting message"}]
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name to greet",
+          "required": false
+        }
+      ],
+      "returns": [
+        {
+          "name": "message",
+          "type": "string",
+          "description": "The greeting message"
+        }
+      ]
     }
   }
 }
 ```
 
-**Engine registration (services/engine/config/plugins.json)**
+This metadata is used by the Engine and UI to display information about your plugin and its methods.
+
+### Registering Plugins with the Engine
+
+Plugins are registered with the engine through the services/engine/config/plugins.json file:
+
 ```json
 [
   {
@@ -99,10 +148,26 @@ go build -buildmode=plugin -o myplugin.so .
 ]
 ```
 
-On startup the engine:
-1) Clones repo into `$HOME/.orka/plugins/<name>` or `.../<name>@<version>`  
-2) Builds with `go build -buildmode=plugin -o <name>.so`  
-3) Loads the shared object and finds the entrypoint  
-4) Reads `config.json` for method metadata
+Configuration fields:
 
-> Registering **custom in‑house plugins** is available only for **enterprise, self‑hosted** deployments, due to the single‑tenancy model in the engine. Other users can use the official plugin set and may submit plugins for review to be included in the marketplace.
+* `name` (string, required): Used as the binary name after build
+* `repo` (string, required): Git URL for the plugin repository
+* `version` (string, required): If present, the Engine namespaces the cache directory and registry key
+* `service` (string, required): Service name for the plugin
+
+When the engine starts, it:
+
+1. Clones the plugin repository to `$HOME/.orka/plugins/<name>` or `$HOME/.orka/plugins/<name>@<version>`
+2. Builds the plugin with `go build -buildmode=plugin -o <name>.so` .
+3. Loads the shared object and looks for the exported entrypoint
+4. Reads the plugin's `config.json` to populate method metadata
+
+<mark style="color:yellow;">**Please note that the ability to register custom, internally developed plugins is reserved exclusively for enterprise customers with a self-hosted, on-premise deployment under an enterprise contract. This restriction exists because custom plugins operate under a single-tenancy model within the Orka engine, and therefore cannot be registered in shared, multi-tenant environments.**</mark>
+
+For all other users, Orka provides a rich set of officially supported plugins that can be readily used in workflows.
+
+<mark style="color:blue;">In addition, developers have the opportunity to contribute by submitting their own plugins for review and potential inclusion in Orka’s official plugin marketplace.</mark>
+
+
+
+Here you can check a sample LLM plugin: [https://github.com/orka-platform/orka-llm-plugin](https://github.com/orka-platform/orka-llm-plugin).
