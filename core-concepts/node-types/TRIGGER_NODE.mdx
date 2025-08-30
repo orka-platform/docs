@@ -12,7 +12,7 @@ The Trigger Node is the fundamental starting point of every workflow in Orka. It
 A Trigger Node is a special workflow component that:
 
 * Always appears first in workflow definitions
-* Defines the execution method (manual or scheduled)
+* Defines the execution method (manual, form-based, or scheduled)
 
 ***
 
@@ -22,7 +22,23 @@ A Trigger Node is a special workflow component that:
 
 The simplest trigger type that allows workflows to be executed on-demand.
 
-### <Highlight color="primary">2. Scheduled Trigger</Highlight>
+### <Highlight color="primary">2. Form Trigger</Highlight>
+
+Executes workflows when a form is submitted, with form data automatically available as workflow variables.
+
+![](../../images/form-trigger.jpg)
+
+Form triggers connect your workflows directly to form submissions, enabling automated processing of user-submitted data. When a user submits a form, the workflow is triggered automatically and all form fields become available as variables in your workflow.
+
+**Key features:**
+- Each form field is accessible as a variable using the field's ID
+- File uploads are handled as file references
+- Form metadata (submission time, user info) is included
+- Multiple workflows can be triggered by the same form
+
+For more information on creating and managing forms, see the [Forms documentation](/core-concepts/FORMS).
+
+### <Highlight color="primary">3. Scheduled Trigger</Highlight>
 
 Advanced trigger type that enables automated, time-based workflow execution.
 
