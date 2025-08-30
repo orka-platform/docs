@@ -16,7 +16,8 @@
           {
             "group": "Getting started",
             "pages": [
-              "getting-started/getting-started"
+              "getting-started/getting-started",
+              "getting-started/quick-start"
             ]
           }
         ]
