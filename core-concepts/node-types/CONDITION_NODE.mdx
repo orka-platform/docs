@@ -10,7 +10,7 @@ The Condition Node (also called If Node) is a fundamental decision-making compon
 
 #### Expression Engine
 
-* **Language:** JavaScript-like expression syntax
+* **Language:** Go-based expression syntax (expr-lang)
 * **Context:** Access to current workflow variables and execution context
 * **Evaluation:** Real-time evaluation during workflow execution
 
@@ -20,7 +20,7 @@ The Condition Node (also called If Node) is a fundamental decision-making compon
 
 *   **Expression**
 
-    The Condition Node's expression field utilizes the [expr-lang](https://expr-lang.org/docs/language-definition) for configuring expressions. For comprehensive guidance on constructing expressions specific to the Condition Node, please refer to the official documentation.&#x20;
+    The Condition Node's expression field utilizes [Orka Expression Language (OEL)](/core-concepts/OEL) for configuring conditional expressions. OEL provides a powerful way to create logical conditions based on workflow variables and context.
 
 > <mark style="color:$primary;">You can access execution variables within the expression.</mark>
 
@@ -106,3 +106,5 @@ indexOf(items, "item2")
 len(properties) > 0
 has(properties, "key1")
 ```
+
+For a complete reference of all available functions and operators, see the [OEL documentation](/core-concepts/OEL).

@@ -43,7 +43,7 @@ When you use an HTTP Request Node, the response data becomes part of the executi
     * Full URLs with protocol `(https://api.example.com/endpoint)`
     * Path parameters `(/users/{{userId}}/profile)`
     * Query parameters `(?page=1&limit=10)`
-    * Variable interpolation using `{{variableName}}` syntax
+    * Variable interpolation using `{{variableName}}` syntax from [Orka Expression Language (OEL)](/core-concepts/OEL)
 
 
 *   **Headers**
@@ -60,7 +60,7 @@ When you use an HTTP Request Node, the response data becomes part of the executi
     * JSON data: Structured data in JSON format
     * Form data: Key-value pairs for form submissions
     * Raw text: Plain text or XML content
-    * Variable interpolation: Use `{{variableName}}` to include workflow variables
+    * Variable interpolation: Use `{{variableName}}` syntax from [OEL](/core-concepts/OEL) to include workflow variables
 
 
 *   **Send Body**
@@ -90,7 +90,7 @@ When you use an HTTP Request Node, the response data becomes part of the executi
     * Transform response data before storing
     * Handle different response structures
 
-> You can use `$` to map the whole response body to the execution variables.
+> You can use `$` to map the whole response body to the execution variables. Response mapping uses [OEL](/core-concepts/OEL) to extract and transform data from API responses.
 > ![](../../images/response-mapping-http-node.jpg)
 
 *   **Timeout**
