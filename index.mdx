@@ -1,97 +1,152 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Orka Documentation"
+description: "High-performance workflow automation platform"
 ---
 
-## Setting up
+<img className="block dark:hidden" src="/logo/light.svg" alt="Orka Logo" />
+<img className="hidden dark:block" src="/logo/dark.svg" alt="Orka Logo" />
 
-Get your documentation site up and running in minutes.
+# Welcome to Orka
+
+Orka is a high-performance, durable, and scalable workflow automation platform designed for modern backend systems. It enables you to define and execute declarative workflows with a strong focus on data consistency, reliability, and observability.
+
+## Get Started
 
 <Card
-  title="Start here"
+  title="Quick Start Guide"
   icon="rocket"
-  href="/quickstart"
+  href="/getting-started/getting-started"
   horizontal
 >
-  Follow our three step quickstart guide.
+  Learn the basics and build your first workflow in minutes.
 </Card>
 
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
+## Core Concepts
 
 <Columns cols={2}>
   <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
+    title="Forms"
+    icon="form"
+    href="/core-concepts/FORMS"
   >
-    Edit your docs locally and preview them in real time.
+    Create custom forms to collect data and trigger workflows.
   </Card>
   <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
+    title="Plugins"
+    icon="puzzle"
+    href="/core-concepts/PLUGINS"
   >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+    Extend Orka's functionality with plugins for third-party integrations.
   </Card>
   <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
+    title="Building Plugins"
+    icon="puzzle"
+    href="/core-concepts/BUILDING_PLUGINS"
   >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
-
-## Create beautiful pages
-
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
+    Create your own custom plugins to extend Orka's capabilities.
   </Card>
   <Card
-    title="Code samples"
+    title="Orka Expression Language"
     icon="code"
-    href="/essentials/code"
+    href="/core-concepts/OEL"
   >
-    Add sample code to demonstrate how to use your product.
+    Use OEL to work with dynamic data in your workflows.
   </Card>
   <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
+    title="Secrets Manager"
+    icon="key"
+    href="/core-concepts/SECRETS_MANAGER"
   >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
+    Securely store and use sensitive information in your workflows.
   </Card>
 </Columns>
 
-## Need inspiration?
+## Node Types
+
+Nodes are the building blocks of your workflows. Each node type serves a specific purpose in your automation.
+
+<Columns cols={3}>
+  <Card
+    title="Trigger Node"
+    icon="circle-play"
+    href="/core-concepts/node-types/TRIGGER_NODE"
+  >
+    Start your workflow with manual, form, or scheduled triggers.
+  </Card>
+  <Card
+    title="Set Variable Node"
+    icon="code-variable"
+    href="/core-concepts/node-types/SET_VARIABLE_NODE"
+  >
+    Create and manipulate variables in your workflow.
+  </Card>
+  <Card
+    title="Condition Node"
+    icon="code-branch"
+    href="/core-concepts/node-types/CONDITION_NODE"
+  >
+    Create branching logic based on conditions.
+  </Card>
+  <Card
+    title="HTTP Request Node"
+    icon="globe"
+    href="/core-concepts/node-types/HTTP_REQUEST_NODE"
+  >
+    Make API calls to external services.
+  </Card>
+  <Card
+    title="Wait Node"
+    icon="hourglass"
+    href="/core-concepts/node-types/WAIT_NODE"
+  >
+    Add timed delays to your workflow.
+  </Card>
+  <Card
+    title="Switch Node"
+    icon="route"
+    href="/core-concepts/node-types/SWITCH_NODE"
+  >
+    Route execution based on multiple possible values.
+  </Card>
+</Columns>
+
+## Popular Use Cases
+
+Orka can automate a wide range of business processes across different industries:
+
+<Columns cols={2}>
+  <Card
+    title="Customer Onboarding"
+    icon="user-plus"
+  >
+    Automate welcome emails, account creation, and team assignments.
+  </Card>
+  <Card
+    title="Order Processing"
+    icon="shopping-cart"
+  >
+    Validate orders, check inventory, process payments, and send confirmations.
+  </Card>
+  <Card
+    title="Lead Management"
+    icon="bullseye"
+  >
+    Capture leads, score them, assign to sales reps, and schedule follow-ups.
+  </Card>
+  <Card
+    title="HR Processes"
+    icon="users"
+  >
+    Handle vacation requests, approval workflows, and employee onboarding.
+  </Card>
+</Columns>
+
+## Need Help?
 
 <Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
+  title="Join Our Community"
+  icon="comments"
+  href="https://orka.build/community"
 >
-  Browse our showcase of exceptional documentation sites.
+  Connect with other Orka users, ask questions, and share your workflows.
 </Card>
