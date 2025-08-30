@@ -40,8 +40,8 @@
               "core-concepts/node-types/SET_VARIABLE_NODE",
               "core-concepts/node-types/CONDITION_NODE",
               "core-concepts/node-types/HTTP_REQUEST_NODE",
-              "core-concepts/node-types/TRIGGER_NODE",
-              "core-concepts/node-types/WAIT_NODE",
+              "core-concepts/node-types/WORKFLOW_TRIGGER",
+              "core-concepts/node-types/DELAY_NODE",
               "core-concepts/node-types/SWITCH_NODE"
             ]
           }
